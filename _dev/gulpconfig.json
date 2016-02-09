@@ -1,0 +1,11 @@
+{
+    "title": "dynamic-jpeg-quality",
+    "version": "0.0.1",
+    "paths": {
+        "theme": "../",
+        "src_sass": "../_scss/",
+        "src_js": "../_js/",
+        "dist_css": "../css/",
+        "dist_js": "../js/"
+    }
+}

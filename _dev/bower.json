@@ -1,0 +1,22 @@
+{
+    "name": "wp-theme-gulp",
+    "version": "0.1.3",
+    "homepage": "https://bitbucket.org/neonpastell/wp-theme-gulp",
+    "authors": [
+        "Manuel Piepereit <manuel.piepereit@neonpastell.de>"
+    ],
+    "description": "Watches file changes, compiles and serves browsersync for wordpress theme development.",
+    "keywords": [
+        "wordpress", "gulp", "sass", "css"
+    ],
+    "main": [
+        "gulpfile.js"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

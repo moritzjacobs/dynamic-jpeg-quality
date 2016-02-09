@@ -1,0 +1,42 @@
+{
+    "name": "dynamic-jpeg-quality",
+    "version": "0.1.0",
+    "keywords": [
+        "gulp",
+        "wordpress",
+        "plugin"
+    ],
+    "contributors": [
+        "Moritz Jacobs"
+    ],
+    "bugs": {
+        "url": "https://bitbucket.org/neonpastell/wp-theme-gulp/issues"
+    },
+    "private": true,
+    "license": "MIT",
+    "main": "gulpfile.js",
+    "readme": "# wp-theme-gulp Watches file changes, compiles and serves browsersync for wordpress theme development.",
+    "readmeFilename": "README.md",
+    "dependencies": {
+        "gulp": "~3.9.0",
+        "gulp-sass": "~2.0.1",
+        "gulp-sourcemaps": "~1.5.2",
+        "gulp-autoprefixer": "~2.3.1",
+        "gulp-concat": "2.5.2",
+        "gulp-uglify": "~1.2.0",
+        "gulp-notify": "~2.2.0",
+        "del": "~1.2.0",
+        "gulp-header": "~1.2.2",
+        "gulp-jshint": "~1.11.0",
+        "gulp-plumber": "~1.0.1",
+        "gulp-livereload": "~3.8.0",
+        "dateformat": "~1.0.11",
+        "gulp-minify-css": "~1.2.0",
+        "run-sequence": "~1.1.1",
+        "replace": "~0.3.0",
+        "gulp-load-plugins": "~1.0.0-rc.1",
+        "browser-sync": "~2.7.13",
+        "gulp-bump": "~0.3.1"
+    },
+    "devDependencies": {}
+}

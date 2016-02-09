@@ -1,0 +1,37 @@
+.djq-settings {
+	
+	$em-color : #00A0D2;
+	
+	display: table-row;
+	
+	.bound-control {
+		
+		input {
+			width: 50px;
+			float: left;
+		}
+		
+		label {
+			float: left;
+			clear: both;
+			line-height: 1.2em;
+			margin-right: 15px;
+		}
+	}
+	
+	.size-scaler {
+		display: table-cell;
+		min-width: 150px;
+		text-align: center;
+		
+		.demo {
+			display: inline-block;
+			background-color: $em-color;
+		}
+		
+		.percent {
+			font-weight: bold;
+			color: $em-color;
+		}
+	}
+}
