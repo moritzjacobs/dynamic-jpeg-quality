@@ -23,9 +23,16 @@
 
 				$mps = array();
 				foreach($all_sizes as $name=>&$size) {
-					$mp = $size["width"]*$size["height"];
+					$sw = $size["width"];
+					$sh = $size["height"];
+					$text = ($size["width"] == 0 ? "∞" : $size["width"]) ." × ". ($size["height"] == 0 ? "∞" : $size["height"]);
+					
+					if($sw <= 0) { $sw = $sh; }
+					if($sh <= 0) { $sh = $sw; }
+					
+					$mp = $sw*$sh;
 					$mps[] = $mp;
-					$size = array("name"=>$name, "width"=>$size["width"], "height"=>$size["height"], "mp"=>$mp);
+					$size = array("name"=>$name, "text" => $text, "width"=>$sw, "height"=>$sh, "mp"=>$mp);
 				}
 				usort($all_sizes, function($a, $b) {
 					return $a['mp'] > $b['mp'] ? 1 : -1;
@@ -34,7 +41,7 @@
 			<?php foreach($all_sizes as $name=>$img_size): ?>
 				<div class="size-scaler" data-aspect-ratio="<?= $img_size["width"] / $img_size["height"]; ?>" data-mp="<?= $img_size["mp"]?>">
 					<span class="demo"></span><br>
-					<?=$img_size["name"]?><br><?= $img_size["width"]; ?>×<?= $img_size["height"]; ?><br><span class="percent">—</span>
+					<?=$img_size["name"]?><br><?= $img_size["text"] ?><br><span class="percent">—</span>
 				</div>
 			<?php endforeach; ?>
 			
@@ -49,4 +56,3 @@
 
 	
 </div>
-

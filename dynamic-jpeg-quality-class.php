@@ -98,7 +98,18 @@ class DynamicJPEGQuality extends DynamicJPEGQualityBaseClass {
 	private static function get_biggest_size() {
 		$all_sizes = self::get_all_sizes();
 		usort($all_sizes, function($a, $b) {
-			return $a['width']*$a['height'] > $b['width']*$b['height'] ? 1 : -1;
+			$ah = $a["height"];
+			$bh = $b["height"];
+			$aw = $a["width"];
+			$bw = $b["width"];
+			
+			if($ah <= 0) { $ah = $aw; }
+			if($aw <= 0) { $aw = $ah; }
+			if($bh <= 0) { $bh = $bw; }
+			if($bw <= 0) { $bw = $bh; }
+			
+			if($aw*$ah === $bw*$bh) { return 0; }
+			return $aw*$ah > $bw*$bh ? 1 : -1;
 		});
 		return $all_sizes[sizeof($all_sizes)-1];
 	}
@@ -110,9 +121,14 @@ class DynamicJPEGQuality extends DynamicJPEGQualityBaseClass {
 			
 			// get the worst case file size
 			$mp_biggest_size = self::get_biggest_size();
+			$mp_bs_h = $mp_biggest_size["height"];
+			$mp_bs_w = $mp_biggest_size["width"];
+			
+			if($mp_bs_w <= 0) { $mp_bs_w = $mp_bs_h; }
+			if($mp_bs_h <= 0) { $mp_bs_h = $mp_bs_w; }
 			
 			// ... as megapixel
-			$mp_biggest = $mp_biggest_size["width"] * $mp_biggest_size["height"];
+			$mp_biggest = $mp_bs_w * $mp_bs_h;
 			
 			// get the actual mp
 			$mp_new = imagesx($resource) * imagesy($resource);
